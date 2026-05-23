@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build & Ball — DRC</title>
+  <meta name="description" content="Build & Ball crée et réhabilite des espaces sportifs inclusifs pour la jeunesse congolaise.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #DB331F;
+      --red-light: #F28F80;
+      --teal: #1FC7DB;
+      --teal-light: #A0E9F3;
+      --gold: #FFC100;
+      --gold-light: #FFD85E;
+      --dark: #1a1a1a;
+      --grey: #666;
+      --light-bg: #f7f7f7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', Arial, sans-serif;
+      color: var(--dark);
+      background: #fff;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      height: 68px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 16px rgba(0,0,0,0.07);
+      transition: box-shadow 0.3s;
+    }
+
+    .nav-logo img {
+      height: 42px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--red); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .lang-toggle {
+      display: flex;
+      background: var(--light-bg);
+      border-radius: 20px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Outfit', Arial, sans-serif;
+      color: var(--grey);
+      transition: all 0.2s;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn.active {
+      background: var(--red);
+      color: white;
+    }
+
+    .insta-btn {
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .insta-btn:hover { color: var(--red); }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+    }
+
+    .hero-slide.active { opacity: 1; }
+
+    .hero-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(219,51,31,0.72) 0%, rgba(0,0,0,0.52) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 8%;
+      max-width: 720px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gold);
+      color: #1a1a1a;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 900;
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 2.2rem;
+      max-width: 520px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: #1a1a1a;
+      padding: 15px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      transition: all 0.22s;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,193,0,0.3);
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+    }
+
+    .hero-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      background: var(--red);
+      padding: 40px 8%;
+      display: flex;
+      gap: 0;
+      justify-content: center;
+    }
+
+    .stat-item {
+      text-align: center;
+      color: white;
+      flex: 1;
+      padding: 0 1rem;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      font-weight: 400;
+      opacity: 0.88;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── GENERIC SECTION ─── */
+    section {
+      padding: 88px 8%;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      line-height: 1.12;
+    }
+
+    .section-desc {
+      font-size: 1.02rem;
+      color: var(--grey);
+      line-height: 1.72;
+      max-width: 680px;
+      font-weight: 300;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: #fff; }
+
+    .about-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid #eee;
+      margin: 2.8rem 0 2rem;
+      overflow-x: auto;
+    }
+
+    .about-tab {
+      padding: 11px 26px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--grey);
+      font-family: 'Outfit', Arial, sans-serif;
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      white-space: nowrap;
+    }
+
+    .about-tab:hover { color: var(--dark); }
+
+    .about-tab.active {
+      color: var(--red);
+      border-bottom-color: var(--red);
+    }
+
+    .about-panel {
+      display: none;
+      animation: fadeUp 0.35s ease;
+    }
+
+    .about-panel.active { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* What we do */
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .what-card {
+      background: var(--light-bg);
+      border-radius: 8px;
+      padding: 1.6rem;
+      border-left: 4px solid var(--teal);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .what-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .what-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.55rem;
+    }
+
+    .what-card p {
+      font-size: 0.88rem;
+      color: var(--grey);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* Beliefs */
+    .beliefs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .belief-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 1.3rem 1.5rem;
+      border-radius: 8px;
+      background: var(--light-bg);
+      transition: transform 0.2s;
+    }
+
+    .belief-item:hover { transform: translateX(4px); }
+
+    .belief-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .belief-item h4 {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      font-size: 0.96rem;
+    }
+
+    .belief-item p {
+      font-size: 0.87rem;
+      color: var(--grey);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* Team */
+    .team-intro {
+      font-size: 0.95rem;
+      color: var(--grey);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .team-card {
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      margin: 0 auto 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #1a8a9a;
+      overflow: hidden;
+      border: 3px solid white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-name {
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .team-role {
+      font-size: 0.78rem;
+      color: var(--grey);
+      font-weight: 300;
+    }
+
+    .team-note {
+      margin-top: 2rem;
+      color: var(--grey);
+      font-size: 0.88rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* ─── PROJECTS ─── */
+    #projects { background: var(--light-bg); }
+
+    .coming-soon-box {
+      margin-top: 3rem;
+      background: white;
+      border-radius: 12px;
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+
+    .coming-soon-icon {
+      font-size: 4rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .coming-soon-box h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--dark);
+    }
+
+    .coming-soon-box p {
+      font-size: 0.9rem;
+      color: var(--grey);
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .follow-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 1.8rem;
+      background: var(--dark);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: background 0.2s;
+    }
+
+    .follow-cta:hover { background: var(--red); }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--dark);
+      color: white;
+    }
+
+    #contact .section-label { color: var(--gold); }
+    #contact .section-title { color: white; }
+    #contact .section-desc { color: rgba(255,255,255,0.6); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      margin-top: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      font-size: 1.1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .contact-item h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-weight: 300;
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover { color: var(--gold); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 13px 16px;
+      color: white;
+      font-family: 'Outfit', Arial, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(255,255,255,0.28);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .contact-form textarea { height: 130px; resize: vertical; }
+
+    .contact-form button {
+      background: var(--red);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-family: 'Outfit', Arial, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      align-self: flex-start;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-form button:hover {
+      background: #c42d1a;
+      transform: translateY(-1px);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #111;
+      padding: 24px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo img {
+      height: 34px;
+      filter: brightness(0) invert(1);
+      opacity: 0.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: white; }
+
+    .footer-copy {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.76rem;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1.2rem 8%;
+        gap: 1.2rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+
+      .what-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-strip { flex-wrap: wrap; }
+      .stat-item { min-width: 100px; }
+
+      section { padding: 60px 6%; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════ NAV ══════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="#home"><img src="images/logo.png" alt="Build & Ball"></a>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about"    data-fr="À propos"    data-en="About">À propos</a></li>
+    <li><a href="#projects" data-fr="Nos projets" data-en="Our Projects">Nos projets</a></li>
+    <li><a href="#contact"  data-fr="Contact"     data-en="Contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="https://www.instagram.com/buildandball" target="_blank" class="insta-btn" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+    </a>
+    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image: url('images/court1.jpg')"></div>
+    <div class="hero-slide"        style="background-image: url('images/court2.jpg')"></div>
+    <div class="hero-slide"        style="background-image: url('images/court3.jpg')"></div>
+  </div>
+
+  <div class="hero-content">
+    <span class="hero-tag">🏀 DRC</span>
+    <h1 class="hero-title" id="heroTitle">Construire des terrains.<br>Bâtir des avenirs.</h1>
+    <p class="hero-subtitle" id="heroSubtitle">Build &amp; Ball crée et réhabilite des espaces sportifs inclusifs au service de la jeunesse congolaise.</p>
+    <a href="#about" class="hero-cta" id="heroCta">Découvrir notre mission</a>
+  </div>
+
+  <div class="hero-dots" id="heroDots">
+    <button class="hero-dot active" onclick="goToSlide(0)"></button>
+    <button class="hero-dot"        onclick="goToSlide(1)"></button>
+    <button class="hero-dot"        onclick="goToSlide(2)"></button>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════ STATS ══════════════════════════════════ -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-number">2025</span>
+    <span class="stat-label" data-fr="Année de fondation" data-en="Year founded">Année de fondation</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">🏀</span>
+    <span class="stat-label" data-fr="1er terrain en préparation" data-en="1st court in preparation">1er terrain en préparation</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">∞</span>
+    <span class="stat-label" data-fr="Potentiel à libérer" data-en="Potential to unlock">Potentiel à libérer</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
+<section id="about">
+  <div class="section-label" data-fr="QUI SOMMES-NOUS" data-en="WHO WE ARE">QUI SOMMES-NOUS</div>
+  <h2 class="section-title" data-fr="À propos de Build &amp; Ball" data-en="About Build &amp; Ball">À propos de Build &amp; Ball</h2>
+  <p class="section-desc"
+     data-fr="Build &amp; Ball est une association congolaise dont la mission est de créer, réhabiliter et gérer des espaces sportifs accessibles et inclusifs — en particulier pour la jeunesse — afin de favoriser l'épanouissement personnel, la cohésion sociale et le développement communautaire."
+     data-en="Build &amp; Ball is a Congolese association whose mission is to create, rehabilitate and manage accessible and inclusive sports spaces — particularly for youth — in order to foster personal development, social cohesion and community development.">
+    Build &amp; Ball est une association congolaise dont la mission est de créer, réhabiliter et gérer des espaces sportifs accessibles et inclusifs — en particulier pour la jeunesse — afin de favoriser l'épanouissement personnel, la cohésion sociale et le développement communautaire.
+  </p>
+
+  <!-- TABS -->
+  <div class="about-tabs">
+    <button class="about-tab active" onclick="switchTab('what')"    id="tab-what"    >Ce que nous faisons</button>
+    <button class="about-tab"        onclick="switchTab('believe')" id="tab-believe" >Ce en quoi nous croyons</button>
+    <button class="about-tab"        onclick="switchTab('team')"    id="tab-team"    >L'équipe</button>
+  </div>
+
+  <!-- PANEL: WHAT WE DO -->
+  <div class="about-panel active" id="panel-what">
+    <div class="what-grid">
+      <div class="what-card">
+        <h4 data-fr="🏗️ Construire &amp; Réhabiliter" data-en="🏗️ Build &amp; Rehabilitate">🏗️ Construire &amp; Réhabiliter</h4>
+        <p data-fr="Nous construisons et réhabilitons des infrastructures sportives dans des zones qui en sont dépourvues, pour offrir aux jeunes un espace digne et sécurisé pour jouer."
+           data-en="We build and rehabilitate sports infrastructure in underserved areas, giving young people a safe and dignified space to play.">
+          Nous construisons et réhabilitons des infrastructures sportives dans des zones qui en sont dépourvues, pour offrir aux jeunes un espace digne et sécurisé pour jouer.
+        </p>
+      </div>
+      <div class="what-card">
+        <h4 data-fr="🎓 Éduquer par le sport" data-en="🎓 Educate Through Sport">🎓 Éduquer par le sport</h4>
+        <p data-fr="Nous promouvons le sport comme outil d'éducation et d'inclusion sociale, en encadrant les jeunes à travers des programmes sportifs et éducatifs."
+           data-en="We promote sport as a tool for education and social inclusion, supporting youth through sports and educational programs.">
+          Nous promouvons le sport comme outil d'éducation et d'inclusion sociale, en encadrant les jeunes à travers des programmes sportifs et éducatifs.
+        </p>
+      </div>
+      <div class="what-card">
+        <h4 data-fr="🤝 Mobiliser la communauté" data-en="🤝 Mobilize the Community">🤝 Mobiliser la communauté</h4>
+        <p data-fr="Nous organisons des activités, formations et événements sportifs pour renforcer l'engagement communautaire et la cohésion sociale."
+           data-en="We organize activities, training sessions and sporting events to strengthen community engagement and social cohesion.">
+          Nous organisons des activités, formations et événements sportifs pour renforcer l'engagement communautaire et la cohésion sociale.
+        </p>
+      </div>
+      <div class="what-card">
+        <h4 data-fr="🌍 Développer des partenariats" data-en="🌍 Develop Partnerships">🌍 Développer des partenariats</h4>
+        <p data-fr="Nous développons des partenariats locaux et internationaux dans les domaines de la construction, du sponsoring, de l'équipement sportif et de l'organisation de camps, formations et échanges."
+           data-en="We develop local and international partnerships in construction, sponsorship, sports equipment, and the organization of camps, training sessions and exchanges.">
+          Nous développons des partenariats locaux et internationaux dans les domaines de la construction, du sponsoring, de l'équipement sportif et de l'organisation de camps, formations et échanges.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: WHAT WE BELIEVE -->
+  <div class="about-panel" id="panel-believe">
+    <div class="beliefs-list">
+      <div class="belief-item">
+        <span class="belief-icon">🏀</span>
+        <div>
+          <h4 data-fr="Le sport est un droit, pas un privilège" data-en="Sport is a right, not a privilege">Le sport est un droit, pas un privilège</h4>
+          <p data-fr="Chaque jeune, peu importe son quartier ou ses moyens, mérite un espace pour jouer, bouger et s'épanouir."
+             data-en="Every young person, regardless of their neighborhood or means, deserves a space to play, move and grow.">
+            Chaque jeune, peu importe son quartier ou ses moyens, mérite un espace pour jouer, bouger et s'épanouir.
+          </p>
+        </div>
+      </div>
+      <div class="belief-item">
+        <span class="belief-icon">🌱</span>
+        <div>
+          <h4 data-fr="L'infrastructure change les trajectoires" data-en="Infrastructure changes trajectories">L'infrastructure change les trajectoires</h4>
+          <p data-fr="Un terrain ne donne pas seulement accès au jeu — il crée un lieu de rencontre, d'apprentissage et d'espoir pour toute une communauté."
+             data-en="A court doesn't just provide access to play — it creates a place of meeting, learning and hope for an entire community.">
+            Un terrain ne donne pas seulement accès au jeu — il crée un lieu de rencontre, d'apprentissage et d'espoir pour toute une communauté.
+          </p>
+        </div>
+      </div>
+      <div class="belief-item">
+        <span class="belief-icon">💪</span>
+        <div>
+          <h4 data-fr="La jeunesse congolaise a tout le potentiel" data-en="Congolese youth has all the potential">La jeunesse congolaise a tout le potentiel</h4>
+          <p data-fr="Nous croyons profondément au talent, à la résilience et à l'énergie de la jeunesse en RDC. Notre rôle est de créer les conditions de leur épanouissement."
+             data-en="We deeply believe in the talent, resilience and energy of youth in the DRC. Our role is to create the conditions for their flourishing.">
+            Nous croyons profondément au talent, à la résilience et à l'énergie de la jeunesse en RDC. Notre rôle est de créer les conditions de leur épanouissement.
+          </p>
+        </div>
+      </div>
+      <div class="belief-item">
+        <span class="belief-icon">🤲</span>
+        <div>
+          <h4 data-fr="Le changement vient de l'intérieur" data-en="Change comes from within">Le changement vient de l'intérieur</h4>
+          <p data-fr="Nous sommes ancrés dans les communautés que nous servons et nous travaillons en partenariat avec elles — pas pour elles."
+             data-en="We are rooted in the communities we serve and work in partnership with them — not for them.">
+            Nous sommes ancrés dans les communautés que nous servons et nous travaillons en partenariat avec elles — pas pour elles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: TEAM -->
+  <div class="about-panel" id="panel-team">
+    <p class="team-intro" id="teamIntro"
+       data-fr="Build &amp; Ball est porté par une équipe passionnée, ancrée en RDC et engagée pour la jeunesse."
+       data-en="Build &amp; Ball is driven by a passionate team, rooted in the DRC and committed to youth.">
+      Build &amp; Ball est porté par une équipe passionnée, ancrée en RDC et engagée pour la jeunesse.
+    </p>
+    <div class="team-grid">
+      <!-- ── Add team members here as the team grows ── -->
+      <div class="team-card">
+        <div class="team-avatar">MS</div>
+        <div class="team-name">Marie-Sophie Pocha</div>
+        <div class="team-role" data-fr="Fondatrice" data-en="Founder">Fondatrice</div>
+      </div>
+      <!-- Example of a member with photo:
+      <div class="team-card">
+        <div class="team-avatar"><img src="images/team-name.jpg" alt="Name"></div>
+        <div class="team-name">Prénom Nom</div>
+        <div class="team-role" data-fr="Rôle FR" data-en="Role EN">Rôle FR</div>
+      </div>
+      -->
+    </div>
+    <p class="team-note" id="teamNote"
+       data-fr="D'autres membres de l'équipe seront présentés prochainement."
+       data-en="More team members will be introduced soon.">
+      D'autres membres de l'équipe seront présentés prochainement.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════ PROJECTS ══════════════════════════════════ -->
+<section id="projects">
+  <div class="section-label" data-fr="NOS PROJETS" data-en="OUR PROJECTS">NOS PROJETS</div>
+  <h2 class="section-title" data-fr="Ce que nous construisons" data-en="What We're Building">Ce que nous construisons</h2>
+  <p class="section-desc"
+     data-fr="Chaque projet est une promesse faite à une communauté. Suivez l'avancement de nos réalisations sur le terrain."
+     data-en="Every project is a promise made to a community. Follow the progress of our work on the ground.">
+    Chaque projet est une promesse faite à une communauté. Suivez l'avancement de nos réalisations sur le terrain.
+  </p>
+
+  <div class="coming-soon-box">
+    <span class="coming-soon-icon">🏗️</span>
+    <h3 data-fr="Premier terrain en cours de préparation" data-en="First court in preparation">Premier terrain en cours de préparation</h3>
+    <p data-fr="Notre premier projet de construction est en cours de planification. Revenez bientôt pour suivre l'avancement du chantier, les photos et les mises à jour du terrain."
+       data-en="Our first construction project is in the planning phase. Come back soon to follow the progress, photos and field updates.">
+      Notre premier projet de construction est en cours de planification. Revenez bientôt pour suivre l'avancement du chantier, les photos et les mises à jour du terrain.
+    </p>
+    <a href="https://www.instagram.com/buildandball" target="_blank" class="follow-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      <span data-fr="Suivre sur Instagram" data-en="Follow on Instagram">Suivre sur Instagram</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════ CONTACT ══════════════════════════════════ -->
+<section id="contact">
+  <div class="section-label" data-fr="NOUS CONTACTER" data-en="GET IN TOUCH">NOUS CONTACTER</div>
+  <h2 class="section-title" data-fr="Travaillons ensemble" data-en="Let's Work Together">Travaillons ensemble</h2>
+  <p class="section-desc"
+     data-fr="Vous souhaitez soutenir notre mission, devenir partenaire ou simplement en savoir plus ? Écrivez-nous."
+     data-en="Want to support our mission, become a partner, or simply learn more? Reach out.">
+    Vous souhaitez soutenir notre mission, devenir partenaire ou simplement en savoir plus ? Écrivez-nous.
+  </p>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <h4 data-fr="Basé à" data-en="Based in">Basé à</h4>
+          <p>Kinshasa, République Démocratique du Congo</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:info@buildandball.africa">info@buildandball.africa</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📸</span>
+        <div>
+          <h4>Instagram</h4>
+          <a href="https://www.instagram.com/buildandball" target="_blank">@buildandball</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Replace YOUR_FORM_ID with your actual Formspree ID after signing up at formspree.io -->
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text"  name="name"    id="fi-name"    placeholder="Nom / Name" required>
+      <input type="email" name="email"   id="fi-email"   placeholder="Email" required>
+      <input type="text"  name="subject" id="fi-subject" placeholder="Sujet / Subject">
+      <textarea           name="message" id="fi-message" placeholder="Votre message / Your message" required></textarea>
+      <button type="submit" id="formBtn">Envoyer</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/logo.png" alt="Build &amp; Ball">
+  </div>
+  <ul class="footer-links">
+    <li><a href="#about"    data-fr="À propos"  data-en="About">À propos</a></li>
+    <li><a href="#projects" data-fr="Projets"   data-en="Projects">Projets</a></li>
+    <li><a href="#contact"  data-fr="Contact"   data-en="Contact">Contact</a></li>
+    <li><a href="https://www.instagram.com/buildandball" target="_blank">Instagram</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Build &amp; Ball · Kinshasa, DRC</p>
+</footer>
+
+
+<script>
+/* ── LANGUAGE ── */
+let lang = 'fr';
+
+const heroContent = {
+  fr: {
+    title: 'Construire des terrains.<br>Bâtir des avenirs.',
+    subtitle: 'Build & Ball crée et réhabilite des espaces sportifs inclusifs au service de la jeunesse congolaise.',
+    cta: 'Découvrir notre mission',
+    subjectPH: 'Sujet / Subject',
+    messagePH: 'Votre message / Your message',
+    sendBtn: 'Envoyer',
+    tabs: ['Ce que nous faisons', "Ce en quoi nous croyons", "L'équipe"],
+  },
+  en: {
+    title: 'Building Courts.<br>Building Futures.',
+    subtitle: 'Build & Ball creates and rehabilitates inclusive sports spaces for the youth of the Congo.',
+    cta: 'Discover our mission',
+    subjectPH: 'Subject',
+    messagePH: 'Your message',
+    sendBtn: 'Send',
+    tabs: ['What We Do', 'What We Believe', 'The Team'],
+  }
+};
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === l.toUpperCase());
+  });
+
+  // Swap data-fr / data-en text nodes
+  document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + l);
+  });
+
+  // Hero title (has HTML)
+  document.getElementById('heroTitle').innerHTML    = heroContent[l].title;
+  document.getElementById('heroSubtitle').textContent = heroContent[l].subtitle;
+  document.getElementById('heroCta').textContent    = heroContent[l].cta;
+
+  // Form placeholders
+  document.getElementById('fi-subject').placeholder = heroContent[l].subjectPH;
+  document.getElementById('fi-message').placeholder = heroContent[l].messagePH;
+  document.getElementById('formBtn').textContent    = heroContent[l].sendBtn;
+
+  // Tab labels
+  const tabIds = ['tab-what', 'tab-believe', 'tab-team'];
+  tabIds.forEach((id, i) => {
+    document.getElementById(id).textContent = heroContent[l].tabs[i];
+  });
+}
+
+/* ── TABS ── */
+function switchTab(id) {
+  document.querySelectorAll('.about-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.about-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  document.getElementById('panel-' + id).classList.add('active');
+}
+
+/* ── HERO SLIDESHOW ── */
+let slide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots   = document.querySelectorAll('.hero-dot');
+
+function goToSlide(n) {
+  slides[slide].classList.remove('active');
+  dots[slide].classList.remove('active');
+  slide = n;
+  slides[slide].classList.add('active');
+  dots[slide].classList.add('active');
+}
+
+setInterval(() => goToSlide((slide + 1) % slides.length), 5000);
+
+/* ── MOBILE MENU ── */
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+/* ── NAV SCROLL SHADOW ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 10 ? '0 2px 24px rgba(0,0,0,0.12)' : '0 1px 16px rgba(0,0,0,0.07)';
+});
+
+/* ── CONTACT FORM SUCCESS ── */
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = document.getElementById('formBtn');
+  btn.textContent = lang === 'fr' ? 'Envoi...' : 'Sending...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      btn.textContent = lang === 'fr' ? '✓ Envoyé !' : '✓ Sent!';
+      btn.style.background = '#1FC7DB';
+      form.reset();
+    } else {
+      btn.textContent = lang === 'fr' ? 'Erreur — réessayez' : 'Error — try again';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = lang === 'fr' ? 'Erreur — réessayez' : 'Error — try again';
+    btn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
