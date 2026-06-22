@@ -6,7 +6,7 @@
   <title>Build & Ball — DRC</title>
   <meta name="description" content="Build & Ball crée et réhabilite des espaces sportifs inclusifs pour la jeunesse congolaise.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --red: #DB331F;
@@ -19,17 +19,13 @@
       --grey: #666;
       --light-bg: #f7f7f7;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Outfit', Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       color: var(--dark);
       background: #fff;
     }
-
     /* ─── NAV ─── */
     nav {
       position: fixed;
@@ -46,18 +42,15 @@
       box-shadow: 0 1px 16px rgba(0,0,0,0.07);
       transition: box-shadow 0.3s;
     }
-
     .nav-logo img {
       height: 42px;
       display: block;
     }
-
     .nav-links {
       display: flex;
       gap: 2.2rem;
       list-style: none;
     }
-
     .nav-links a {
       text-decoration: none;
       color: var(--dark);
@@ -67,7 +60,6 @@
       transition: color 0.2s;
       position: relative;
     }
-
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -78,23 +70,19 @@
       background: var(--red);
       transition: width 0.25s;
     }
-
     .nav-links a:hover { color: var(--red); }
     .nav-links a:hover::after { width: 100%; }
-
     .nav-right {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
-
     .lang-toggle {
       display: flex;
       background: var(--light-bg);
       border-radius: 20px;
       padding: 3px;
     }
-
     .lang-btn {
       border: none;
       background: transparent;
@@ -103,17 +91,15 @@
       font-size: 0.78rem;
       font-weight: 700;
       cursor: pointer;
-      font-family: 'Outfit', Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       color: var(--grey);
       transition: all 0.2s;
       letter-spacing: 0.05em;
     }
-
     .lang-btn.active {
       background: var(--red);
       color: white;
     }
-
     .insta-btn {
       color: var(--dark);
       text-decoration: none;
@@ -122,7 +108,6 @@
       transition: color 0.2s;
     }
     .insta-btn:hover { color: var(--red); }
-
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -132,7 +117,6 @@
       color: var(--dark);
       line-height: 1;
     }
-
     /* ─── HERO ─── */
     .hero {
       height: 100vh;
@@ -142,12 +126,7 @@
       align-items: center;
       overflow: hidden;
     }
-
-    .hero-slides {
-      position: absolute;
-      inset: 0;
-    }
-
+    .hero-slides { position: absolute; inset: 0; }
     .hero-slide {
       position: absolute;
       inset: 0;
@@ -156,23 +135,19 @@
       opacity: 0;
       transition: opacity 1.4s ease;
     }
-
     .hero-slide.active { opacity: 1; }
-
     .hero-slide::after {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(120deg, rgba(219,51,31,0.72) 0%, rgba(0,0,0,0.52) 100%);
     }
-
     .hero-content {
       position: relative;
       z-index: 2;
       padding: 0 8%;
       max-width: 720px;
     }
-
     .hero-tag {
       display: inline-flex;
       align-items: center;
@@ -187,15 +162,14 @@
       text-transform: uppercase;
       margin-bottom: 1.4rem;
     }
-
     .hero-title {
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      font-weight: 900;
+      font-family: 'Amatic SC', cursive;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 700;
       color: white;
-      line-height: 1.05;
+      line-height: 1.0;
       margin-bottom: 1.3rem;
     }
-
     .hero-subtitle {
       font-size: clamp(0.95rem, 1.5vw, 1.1rem);
       color: rgba(255,255,255,0.85);
@@ -204,7 +178,6 @@
       margin-bottom: 2.2rem;
       max-width: 520px;
     }
-
     .hero-cta {
       display: inline-block;
       background: var(--gold);
@@ -217,13 +190,11 @@
       letter-spacing: 0.04em;
       transition: all 0.22s;
     }
-
     .hero-cta:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(255,193,0,0.3);
     }
-
     .hero-dots {
       position: absolute;
       bottom: 32px;
@@ -233,7 +204,6 @@
       gap: 8px;
       z-index: 2;
     }
-
     .hero-dot {
       width: 8px;
       height: 8px;
@@ -243,12 +213,10 @@
       transition: background 0.2s, transform 0.2s;
       border: none;
     }
-
     .hero-dot.active {
       background: var(--gold);
       transform: scale(1.3);
     }
-
     /* ─── STATS STRIP ─── */
     .stats-strip {
       background: var(--red);
@@ -257,7 +225,6 @@
       gap: 0;
       justify-content: center;
     }
-
     .stat-item {
       text-align: center;
       color: white;
@@ -265,9 +232,7 @@
       padding: 0 1rem;
       border-right: 1px solid rgba(255,255,255,0.2);
     }
-
     .stat-item:last-child { border-right: none; }
-
     .stat-number {
       font-size: 2.6rem;
       font-weight: 900;
@@ -276,19 +241,14 @@
       line-height: 1;
       margin-bottom: 0.4rem;
     }
-
     .stat-label {
       font-size: 0.82rem;
       font-weight: 400;
       opacity: 0.88;
       letter-spacing: 0.02em;
     }
-
     /* ─── GENERIC SECTION ─── */
-    section {
-      padding: 88px 8%;
-    }
-
+    section { padding: 88px 8%; }
     .section-label {
       font-size: 0.72rem;
       font-weight: 700;
@@ -297,14 +257,13 @@
       color: var(--red);
       margin-bottom: 0.6rem;
     }
-
     .section-title {
-      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
-      font-weight: 800;
+      font-family: 'Amatic SC', cursive;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      font-weight: 700;
       margin-bottom: 1.2rem;
-      line-height: 1.12;
+      line-height: 1.1;
     }
-
     .section-desc {
       font-size: 1.02rem;
       color: var(--grey);
@@ -313,9 +272,50 @@
       font-weight: 300;
     }
 
+    /* ─── OUR STORY ─── */
+    #story { background: var(--light-bg); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .story-block {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem 1.8rem;
+    }
+
+    .story-shape {
+      margin-bottom: 1.4rem;
+    }
+
+    .story-block h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .story-block p {
+      font-size: 0.9rem;
+      color: var(--grey);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .story-block p em {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
     /* ─── ABOUT ─── */
     #about { background: #fff; }
-
     .about-tabs {
       display: flex;
       gap: 0;
@@ -323,7 +323,6 @@
       margin: 2.8rem 0 2rem;
       overflow-x: auto;
     }
-
     .about-tab {
       padding: 11px 26px;
       font-size: 0.88rem;
@@ -332,40 +331,29 @@
       border: none;
       background: transparent;
       color: var(--grey);
-      font-family: 'Outfit', Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       transition: all 0.2s;
       border-bottom: 3px solid transparent;
       margin-bottom: -2px;
       white-space: nowrap;
     }
-
     .about-tab:hover { color: var(--dark); }
-
     .about-tab.active {
       color: var(--red);
       border-bottom-color: var(--red);
     }
-
-    .about-panel {
-      display: none;
-      animation: fadeUp 0.35s ease;
-    }
-
+    .about-panel { display: none; animation: fadeUp 0.35s ease; }
     .about-panel.active { display: block; }
-
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* What we do */
     .what-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       margin-top: 0.5rem;
     }
-
     .what-card {
       background: var(--light-bg);
       border-radius: 8px;
@@ -373,33 +361,13 @@
       border-left: 4px solid var(--teal);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-
     .what-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     }
-
-    .what-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.55rem;
-    }
-
-    .what-card p {
-      font-size: 0.88rem;
-      color: var(--grey);
-      line-height: 1.65;
-      font-weight: 300;
-    }
-
-    /* Beliefs */
-    .beliefs-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
+    .what-card h4 { font-family: 'Amatic SC', cursive; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.55rem; }
+    .what-card p { font-size: 0.88rem; color: var(--grey); line-height: 1.65; font-weight: 300; }
+    .beliefs-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem; }
     .belief-item {
       display: flex;
       align-items: flex-start;
@@ -409,48 +377,13 @@
       background: var(--light-bg);
       transition: transform 0.2s;
     }
-
     .belief-item:hover { transform: translateX(4px); }
-
-    .belief-icon {
-      font-size: 1.6rem;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .belief-item h4 {
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      font-size: 0.96rem;
-    }
-
-    .belief-item p {
-      font-size: 0.87rem;
-      color: var(--grey);
-      line-height: 1.65;
-      font-weight: 300;
-    }
-
-    /* Team */
-    .team-intro {
-      font-size: 0.95rem;
-      color: var(--grey);
-      font-weight: 300;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .team-card {
-      text-align: center;
-    }
-
+    .belief-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 1px; }
+    .belief-item h4 { font-family: 'Amatic SC', cursive; font-weight: 700; margin-bottom: 0.3rem; font-size: 1.35rem; }
+    .belief-item p { font-size: 0.87rem; color: var(--grey); line-height: 1.65; font-weight: 300; }
+    .team-intro { font-size: 0.95rem; color: var(--grey); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; max-width: 600px; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1.8rem; }
+    .team-card { text-align: center; }
     .team-avatar {
       width: 96px;
       height: 96px;
@@ -467,36 +400,12 @@
       border: 3px solid white;
       box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
-
-    .team-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .team-name {
-      font-weight: 700;
-      font-size: 0.92rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .team-role {
-      font-size: 0.78rem;
-      color: var(--grey);
-      font-weight: 300;
-    }
-
-    .team-note {
-      margin-top: 2rem;
-      color: var(--grey);
-      font-size: 0.88rem;
-      font-weight: 300;
-      font-style: italic;
-    }
-
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .team-name { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.2rem; }
+    .team-role { font-size: 0.78rem; color: var(--grey); font-weight: 300; }
+    .team-note { margin-top: 2rem; color: var(--grey); font-size: 0.88rem; font-weight: 300; font-style: italic; }
     /* ─── PROJECTS ─── */
     #projects { background: var(--light-bg); }
-
     .coming-soon-box {
       margin-top: 3rem;
       background: white;
@@ -505,29 +414,9 @@
       text-align: center;
       box-shadow: 0 2px 16px rgba(0,0,0,0.05);
     }
-
-    .coming-soon-icon {
-      font-size: 4rem;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-
-    .coming-soon-box h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      color: var(--dark);
-    }
-
-    .coming-soon-box p {
-      font-size: 0.9rem;
-      color: var(--grey);
-      font-weight: 300;
-      line-height: 1.6;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
+    .coming-soon-icon { font-size: 4rem; margin-bottom: 1.2rem; display: block; }
+    .coming-soon-box h3 { font-family: 'Amatic SC', cursive; font-size: 2rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--dark); }
+    .coming-soon-box p { font-size: 0.9rem; color: var(--grey); font-weight: 300; line-height: 1.6; max-width: 400px; margin: 0 auto; }
     .follow-cta {
       display: inline-flex;
       align-items: center;
@@ -542,108 +431,47 @@
       font-size: 0.88rem;
       transition: background 0.2s;
     }
-
     .follow-cta:hover { background: var(--red); }
-
     /* ─── CONTACT ─── */
-    #contact {
-      background: var(--dark);
-      color: white;
-    }
-
+    #contact { background: var(--dark); color: white; }
     #contact .section-label { color: var(--gold); }
     #contact .section-title { color: white; }
     #contact .section-desc { color: rgba(255,255,255,0.6); }
-
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: 5rem;
       margin-top: 3rem;
     }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .contact-icon {
-      font-size: 1.1rem;
-      color: var(--gold);
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
-
-    .contact-item h4 {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 0.25rem;
-    }
-
-    .contact-item p,
-    .contact-item a {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.82);
-      text-decoration: none;
-      font-weight: 300;
-      line-height: 1.5;
-      transition: color 0.2s;
-    }
-
+    .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .contact-icon { font-size: 1.1rem; color: var(--gold); flex-shrink: 0; margin-top: 3px; }
+    .contact-item h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 0.25rem; }
+    .contact-item p, .contact-item a { font-size: 0.95rem; color: rgba(255,255,255,0.82); text-decoration: none; font-weight: 300; line-height: 1.5; transition: color 0.2s; }
     .contact-item a:hover { color: var(--gold); }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
+    .contact-form { display: flex; flex-direction: column; gap: 0.85rem; }
+    .contact-form input, .contact-form textarea, .contact-form select {
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 4px;
       padding: 13px 16px;
       color: white;
-      font-family: 'Outfit', Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 0.88rem;
       font-weight: 300;
       transition: border-color 0.2s, background 0.2s;
       width: 100%;
     }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: rgba(255,255,255,0.28);
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--teal);
-      background: rgba(255,255,255,0.1);
-    }
-
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.28); }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--teal); background: rgba(255,255,255,0.1); }
     .contact-form textarea { height: 130px; resize: vertical; }
-
     .contact-form button {
       background: var(--red);
       color: white;
       border: none;
       padding: 14px 32px;
       border-radius: 4px;
-      font-family: 'Outfit', Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
@@ -651,12 +479,7 @@
       align-self: flex-start;
       letter-spacing: 0.04em;
     }
-
-    .contact-form button:hover {
-      background: #c42d1a;
-      transform: translateY(-1px);
-    }
-
+    .contact-form button:hover { background: #c42d1a; transform: translateY(-1px); }
     /* ─── FOOTER ─── */
     footer {
       background: #111;
@@ -667,38 +490,15 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-
-    .footer-logo img {
-      height: 34px;
-      filter: brightness(0) invert(1);
-      opacity: 0.6;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.8rem;
-      list-style: none;
-    }
-
-    .footer-links a {
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      font-size: 0.8rem;
-      transition: color 0.2s;
-    }
-
+    .footer-logo img { height: 34px; filter: brightness(0) invert(1); opacity: 0.6; }
+    .footer-links { display: flex; gap: 1.8rem; list-style: none; }
+    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
     .footer-links a:hover { color: white; }
-
-    .footer-copy {
-      color: rgba(255,255,255,0.25);
-      font-size: 0.76rem;
-    }
-
+    .footer-copy { color: rgba(255,255,255,0.25); font-size: 0.76rem; }
     /* ─── MOBILE ─── */
     @media (max-width: 820px) {
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
-
       .nav-links.open {
         display: flex;
         flex-direction: column;
@@ -711,15 +511,14 @@
         gap: 1.2rem;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       }
-
       .what-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .stats-strip { flex-wrap: wrap; }
       .stat-item { min-width: 100px; }
-
       section { padding: 60px 6%; }
       footer { flex-direction: column; text-align: center; }
       .footer-links { flex-wrap: wrap; justify-content: center; }
+      .story-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -728,15 +527,14 @@
 <!-- ══════════════════════════════════ NAV ══════════════════════════════════ -->
 <nav id="navbar">
   <div class="nav-logo">
-    <a href="#home"><img src="logo.png" alt="Build & Ball"></a>
+    <a href="#home"><img src="logo.svg" alt="Build & Ball"></a>
   </div>
-
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about"    data-fr="À propos"    data-en="About">À propos</a></li>
-    <li><a href="#projects" data-fr="Nos projets" data-en="Our Projects">Nos projets</a></li>
-    <li><a href="#contact"  data-fr="Contact"     data-en="Contact">Contact</a></li>
+    <li><a href="#story"    data-fr="Notre histoire" data-en="Our Story">Notre histoire</a></li>
+    <li><a href="#about"    data-fr="À propos"        data-en="About">À propos</a></li>
+    <li><a href="#projects" data-fr="Nos projets"     data-en="Our Projects">Nos projets</a></li>
+    <li><a href="#contact"  data-fr="Contact"         data-en="Contact">Contact</a></li>
   </ul>
-
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
@@ -753,7 +551,6 @@
   </div>
 </nav>
 
-
 <!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
 <section class="hero" id="home">
   <div class="hero-slides" id="heroSlides">
@@ -761,21 +558,18 @@
     <div class="hero-slide"        style="background-image: url('court2.jpg')"></div>
     <div class="hero-slide"        style="background-image: url('court3.jpg')"></div>
   </div>
-
   <div class="hero-content">
     <span class="hero-tag">🏀 DRC</span>
     <h1 class="hero-title" id="heroTitle">Construire des terrains.<br>Bâtir des avenirs.</h1>
     <p class="hero-subtitle" id="heroSubtitle">Build &amp; Ball crée et réhabilite des espaces sportifs inclusifs au service de la jeunesse congolaise.</p>
-    <a href="#about" class="hero-cta" id="heroCta">Découvrir notre mission</a>
+    <a href="#story" class="hero-cta" id="heroCta">Découvrir notre histoire</a>
   </div>
-
   <div class="hero-dots" id="heroDots">
     <button class="hero-dot active" onclick="goToSlide(0)"></button>
     <button class="hero-dot"        onclick="goToSlide(1)"></button>
     <button class="hero-dot"        onclick="goToSlide(2)"></button>
   </div>
 </section>
-
 
 <!-- ══════════════════════════════════ STATS ══════════════════════════════════ -->
 <div class="stats-strip">
@@ -793,6 +587,57 @@
   </div>
 </div>
 
+<!-- ══════════════════════════════════ OUR STORY ══════════════════════════════ -->
+<section id="story">
+  <div class="section-label" data-fr="NOTRE HISTOIRE" data-en="OUR STORY">NOTRE HISTOIRE</div>
+  <h2 class="section-title" data-fr="Build &amp; Ball — Notre histoire" data-en="Build &amp; Ball — Our Story">Build &amp; Ball — Notre histoire</h2>
+
+  <div class="story-grid">
+
+    <!-- BLOCK 1: Ball — Circle shape -->
+    <div class="story-block">
+      <div class="story-shape">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" stroke="#1FC7DB" stroke-width="4"/>
+        </svg>
+      </div>
+      <h3 data-fr="Commençons par le « Ball »" data-en='Starting with "Ball"'>Commençons par le « Ball »</h3>
+      <p data-fr="La raison pour laquelle nous nous sommes réunis pour fonder Build&amp;Ball est assez simple : nous sommes unis par notre passion et notre amour pour le jeu, pour le basketball. Pour chacun d'entre nous, le basketball a joué un rôle immense dans notre façon de grandir – et pour certains, aussi de vieillir ;-) – et dans la construction des personnes que nous sommes aujourd'hui. Que ce soit en jouant, en coachant, en regardant, en arbitrant, ou en voyant nos enfants et nos frères s'épanouir sur le terrain – chacun de nous a une histoire sur la façon dont le basketball a changé et façonné sa vie."
+         data-en="The reason why we came together to found Build&amp;Ball is pretty simple: we are united by our passion and love for the game, the sport of basketball. For each one of us, Basketball has played a huge part in growing up – for some of us also for growing old ;-) – and shaping the people we are today. Whether that's playing, coaching, watching, refereeing or seeing our children and brothers find fulfillment on the court – each one of us has a story about how Basketball has changed and shaped our lives.">
+        La raison pour laquelle nous nous sommes réunis pour fonder Build&amp;Ball est assez simple : nous sommes unis par notre passion et notre amour pour le jeu, pour le basketball. Pour chacun d'entre nous, le basketball a joué un rôle immense dans notre façon de grandir – et pour certains, aussi de vieillir ;-) – et dans la construction des personnes que nous sommes aujourd'hui. Que ce soit en jouant, en coachant, en regardant, en arbitrant, ou en voyant nos enfants et nos frères s'épanouir sur le terrain – chacun de nous a une histoire sur la façon dont le basketball a changé et façonné sa vie.
+      </p>
+    </div>
+
+    <!-- BLOCK 2: Build — Triangle shape -->
+    <div class="story-block">
+      <div class="story-shape">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="24,4 44,44 4,44" stroke="#DB331F" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 data-fr="Et le « Build », alors ?" data-en='Now, how about "Build"?'>Et le « Build », alors ?</h3>
+      <p data-fr="Notre président est ingénieur civil, ce qui devrait vous donner un indice ! ;-) Plus sérieusement, nous voyons le côté Build de notre nom comme la mise en commun de nos compétences et forces professionnelles pour contribuer à construire l'écosystème du basketball et du sport. Que ce soit l'expérience de nos co-fondateurs en génie civil, dans la gestion de programmes de développement des jeunes, ou dans la direction de projets à but non lucratif en RDC – nous avons décidé de nous réunir pour développer des espaces où les jeunes peuvent tomber amoureux du basketball (et d'autres sports) et trouver une communauté – tout comme nous l'avons fait autrefois."
+         data-en="Well, our president is a civic engineer, so that should give you a hint! ;-) In all seriousness, we see the Build part of our name as bringing our professional skills and strengths together in order to contribute to building the basketball and sports ecosystem. Whether that is our co-founders' experience in construction engineering, running youth development programs or directing non-profit projects in the DRC, as founders we decided to come together to grow and develop spaces for youths to fall in love with basketball (and other sports), to find community – just like we once did.">
+        Notre président est ingénieur civil, ce qui devrait vous donner un indice ! ;-) Plus sérieusement, nous voyons le côté Build de notre nom comme la mise en commun de nos compétences et forces professionnelles pour contribuer à construire l'écosystème du basketball et du sport. Que ce soit l'expérience de nos co-fondateurs en génie civil, dans la gestion de programmes de développement des jeunes, ou dans la direction de projets à but non lucratif en RDC – nous avons décidé de nous réunir pour développer des espaces où les jeunes peuvent tomber amoureux du basketball (et d'autres sports) et trouver une communauté – tout comme nous l'avons fait autrefois.
+      </p>
+    </div>
+
+    <!-- BLOCK 3: Together — Square shape -->
+    <div class="story-block">
+      <div class="story-shape">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="40" height="40" stroke="#FFC100" stroke-width="4" rx="2"/>
+        </svg>
+      </div>
+      <h3 data-fr="Une combinaison puissante" data-en="A powerful combination">Une combinaison puissante</h3>
+      <p data-fr="Bref, chez Build&amp;Ball, nous construisons, réhabilitons et gérons des espaces communautaires pour que les jeunes puissent pratiquer des sports et trouver une communauté. Parce que nous croyons que tomber amoureux du sport ne créera pas seulement de meilleurs joueurs – mais de meilleures personnes, et de meilleures communautés."
+         data-en='"Bref" (in short), at Build&amp;Ball we build, rehabilitate and manage community spaces for youths to play sports and find community. Because we believe that falling in love with sports will not just create better players, but better people and better communities.'>
+        Bref, chez Build&amp;Ball, nous construisons, réhabilitons et gérons des espaces communautaires pour que les jeunes puissent pratiquer des sports et trouver une communauté. Parce que nous croyons que tomber amoureux du sport ne créera pas seulement de meilleurs joueurs – mais de meilleures personnes, et de meilleures communautés.
+      </p>
+    </div>
+
+  </div>
+</section>
 
 <!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
 <section id="about">
@@ -803,14 +648,11 @@
      data-en="Build &amp; Ball is a Congolese association whose mission is to create, rehabilitate and manage accessible and inclusive sports spaces — particularly for youth — in order to foster personal development, social cohesion and community development.">
     Build &amp; Ball est une association congolaise dont la mission est de créer, réhabiliter et gérer des espaces sportifs accessibles et inclusifs — en particulier pour la jeunesse — afin de favoriser l'épanouissement personnel, la cohésion sociale et le développement communautaire.
   </p>
-
-  <!-- TABS -->
   <div class="about-tabs">
-    <button class="about-tab active" onclick="switchTab('what')"    id="tab-what"    >Ce que nous faisons</button>
-    <button class="about-tab"        onclick="switchTab('believe')" id="tab-believe" >Ce en quoi nous croyons</button>
-    <button class="about-tab"        onclick="switchTab('team')"    id="tab-team"    >L'équipe</button>
+    <button class="about-tab active" onclick="switchTab('what')"    id="tab-what"   >Ce que nous faisons</button>
+    <button class="about-tab"        onclick="switchTab('believe')" id="tab-believe">Ce en quoi nous croyons</button>
+    <button class="about-tab"        onclick="switchTab('team')"    id="tab-team"   >L'équipe</button>
   </div>
-
   <!-- PANEL: WHAT WE DO -->
   <div class="about-panel active" id="panel-what">
     <div class="what-grid">
@@ -836,15 +678,14 @@
         </p>
       </div>
       <div class="what-card">
-        <h4 data-fr="🌍 Développer des partenariats" data-en="🌍 Develop Partnerships">🌍 Développer des partenariats</h4>
-        <p data-fr="Nous développons des partenariats locaux et internationaux dans les domaines de la construction, du sponsoring, de l'équipement sportif et de l'organisation de camps, formations et échanges."
-           data-en="We develop local and international partnerships in construction, sponsorship, sports equipment, and the organization of camps, training sessions and exchanges.">
-          Nous développons des partenariats locaux et internationaux dans les domaines de la construction, du sponsoring, de l'équipement sportif et de l'organisation de camps, formations et échanges.
+        <h4 data-fr="🌍 Développer l'écosystème sportif" data-en="🌍 Develop the Sports Ecosystem">🌍 Développer l'écosystème sportif</h4>
+        <p data-fr="En construisant et réhabilitant des terrains, nous contribuons à rendre l'écosystème du basketball et du sport accessible à tous les jeunes. Chaque infrastructure que nous créons est un pas de plus vers un environnement où la pratique sportive est possible, visible et durable."
+           data-en="By building and rehabilitating courts, we contribute to making the basketball and sports ecosystem accessible to all youth. Every infrastructure we create is one more step toward an environment where sport is possible, visible and sustainable.">
+          En construisant et réhabilitant des terrains, nous contribuons à rendre l'écosystème du basketball et du sport accessible à tous les jeunes. Chaque infrastructure que nous créons est un pas de plus vers un environnement où la pratique sportive est possible, visible et durable.
         </p>
       </div>
     </div>
   </div>
-
   <!-- PANEL: WHAT WE BELIEVE -->
   <div class="about-panel" id="panel-believe">
     <div class="beliefs-list">
@@ -890,7 +731,6 @@
       </div>
     </div>
   </div>
-
   <!-- PANEL: TEAM -->
   <div class="about-panel" id="panel-team">
     <p class="team-intro" id="teamIntro"
@@ -899,61 +739,48 @@
       Build &amp; Ball est porté par une équipe passionnée, ancrée en RDC et engagée pour la jeunesse.
     </p>
     <div class="team-grid">
-
       <div class="team-card">
         <div class="team-avatar">
-          <img src="team-bienfait.jpg" alt="Bienfait"
-               onerror="this.parentElement.innerHTML='B'">
+          <img src="team-bienfait.jpg" alt="Bienfait" onerror="this.parentElement.innerHTML='B'">
         </div>
         <div class="team-name">Bienfait</div>
         <div class="team-role" data-fr="Président" data-en="President">Président</div>
       </div>
-
       <div class="team-card">
         <div class="team-avatar">
-          <img src="team-mariesophie.jpg" alt="Marie-Sophie"
-               onerror="this.parentElement.innerHTML='MS'">
+          <img src="team-mariesophie.jpg" alt="Marie-Sophie" onerror="this.parentElement.innerHTML='MS'">
         </div>
         <div class="team-name">Marie-Sophie</div>
         <div class="team-role" data-fr="Co-Fondatrice" data-en="Co-Founder">Co-Fondatrice</div>
       </div>
-
       <div class="team-card">
         <div class="team-avatar">
-          <img src="team-chris.jpg" alt="Chris"
-               onerror="this.parentElement.innerHTML='C'">
+          <img src="team-chris.jpg" alt="Chris" onerror="this.parentElement.innerHTML='C'">
         </div>
         <div class="team-name">Chris</div>
         <div class="team-role" data-fr="Co-Fondateur" data-en="Co-Founder">Co-Fondateur</div>
       </div>
-
       <div class="team-card">
         <div class="team-avatar">
-          <img src="team-yves.jpg" alt="Yves"
-               onerror="this.parentElement.innerHTML='Y'">
+          <img src="team-yves.jpg" alt="Yves" onerror="this.parentElement.innerHTML='Y'">
         </div>
         <div class="team-name">Yves</div>
         <div class="team-role" data-fr="Co-Fondateur" data-en="Co-Founder">Co-Fondateur</div>
       </div>
-
       <div class="team-card">
         <div class="team-avatar">
-          <img src="team-bello.jpg" alt="Bello"
-               onerror="this.parentElement.innerHTML='B'">
+          <img src="team-bello.jpg" alt="Bello" onerror="this.parentElement.innerHTML='B'">
         </div>
         <div class="team-name">Bello</div>
         <div class="team-role" data-fr="Co-Fondateur" data-en="Co-Founder">Co-Fondateur</div>
       </div>
-
       <div class="team-card">
         <div class="team-avatar">
-          <img src="team-merveil.jpg" alt="Merveil"
-               onerror="this.parentElement.innerHTML='M'">
+          <img src="team-merveil.jpg" alt="Merveil" onerror="this.parentElement.innerHTML='M'">
         </div>
         <div class="team-name">Merveil</div>
         <div class="team-role" data-fr="Co-Fondateur" data-en="Co-Founder">Co-Fondateur</div>
       </div>
-
     </div>
     <p class="team-note" id="teamNote"
        data-fr="D'autres membres de l'équipe seront présentés prochainement."
@@ -962,7 +789,6 @@
     </p>
   </div>
 </section>
-
 
 <!-- ══════════════════════════════════ PROJECTS ══════════════════════════════════ -->
 <section id="projects">
@@ -973,7 +799,6 @@
      data-en="Every project is a promise made to a community. Follow the progress of our work on the ground.">
     Chaque projet est une promesse faite à une communauté. Suivez l'avancement de nos réalisations sur le terrain.
   </p>
-
   <div class="coming-soon-box">
     <span class="coming-soon-icon">🏗️</span>
     <h3 data-fr="Premier terrain en cours de préparation" data-en="First court in preparation">Premier terrain en cours de préparation</h3>
@@ -991,7 +816,6 @@
   </div>
 </section>
 
-
 <!-- ══════════════════════════════════ CONTACT ══════════════════════════════════ -->
 <section id="contact">
   <div class="section-label" data-fr="NOUS CONTACTER" data-en="GET IN TOUCH">NOUS CONTACTER</div>
@@ -1001,7 +825,6 @@
      data-en="Want to support our mission, become a partner, or simply learn more? Reach out.">
     Vous souhaitez soutenir notre mission, devenir partenaire ou simplement en savoir plus ? Écrivez-nous.
   </p>
-
   <div class="contact-grid">
     <div class="contact-info">
       <div class="contact-item">
@@ -1015,7 +838,7 @@
         <span class="contact-icon">✉️</span>
         <div>
           <h4>Email</h4>
-          <a href="mailto:info@build.andball.africa">info@build.andball.africa</a>
+          <a href="mailto:info@buildandball.africa">info@buildandball.africa</a>
         </div>
       </div>
       <div class="contact-item">
@@ -1026,9 +849,7 @@
         </div>
       </div>
     </div>
-
-    <!-- Replace YOUR_FORM_ID with your actual Formspree ID after signing up at formspree.io -->
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvzyqqrb" method="POST">
       <input type="text"  name="name"    id="fi-name"    placeholder="Nom / Name" required>
       <input type="email" name="email"   id="fi-email"   placeholder="Email" required>
       <input type="text"  name="subject" id="fi-subject" placeholder="Sujet / Subject">
@@ -1038,31 +859,29 @@
   </div>
 </section>
 
-
 <!-- ══════════════════════════════════ FOOTER ══════════════════════════════════ -->
 <footer>
   <div class="footer-logo">
-    <img src="logo.png" alt="Build &amp; Ball">
+    <img src="logo.svg" alt="Build &amp; Ball">
   </div>
   <ul class="footer-links">
-    <li><a href="#about"    data-fr="À propos"  data-en="About">À propos</a></li>
-    <li><a href="#projects" data-fr="Projets"   data-en="Projects">Projets</a></li>
-    <li><a href="#contact"  data-fr="Contact"   data-en="Contact">Contact</a></li>
+    <li><a href="#story"    data-fr="Notre histoire" data-en="Our Story">Notre histoire</a></li>
+    <li><a href="#about"    data-fr="À propos"        data-en="About">À propos</a></li>
+    <li><a href="#projects" data-fr="Projets"         data-en="Projects">Projets</a></li>
+    <li><a href="#contact"  data-fr="Contact"         data-en="Contact">Contact</a></li>
     <li><a href="https://www.instagram.com/build.andball" target="_blank">Instagram</a></li>
   </ul>
   <p class="footer-copy">© 2026 Build &amp; Ball · Kinshasa, DRC</p>
 </footer>
 
-
 <script>
 /* ── LANGUAGE ── */
 let lang = 'fr';
-
 const heroContent = {
   fr: {
     title: 'Construire des terrains.<br>Bâtir des avenirs.',
     subtitle: 'Build & Ball crée et réhabilite des espaces sportifs inclusifs au service de la jeunesse congolaise.',
-    cta: 'Découvrir notre mission',
+    cta: 'Découvrir notre histoire',
     subjectPH: 'Sujet / Subject',
     messagePH: 'Votre message / Your message',
     sendBtn: 'Envoyer',
@@ -1071,42 +890,32 @@ const heroContent = {
   en: {
     title: 'Building Courts.<br>Building Futures.',
     subtitle: 'Build & Ball creates and rehabilitates inclusive sports spaces for the youth of the Congo.',
-    cta: 'Discover our mission',
+    cta: 'Discover our story',
     subjectPH: 'Subject',
     messagePH: 'Your message',
     sendBtn: 'Send',
     tabs: ['What We Do', 'What We Believe', 'The Team'],
   }
 };
-
 function setLang(l) {
   lang = l;
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.textContent === l.toUpperCase());
   });
-
-  // Swap data-fr / data-en text nodes
   document.querySelectorAll('[data-fr][data-en]').forEach(el => {
     el.textContent = el.getAttribute('data-' + l);
   });
-
-  // Hero title (has HTML)
-  document.getElementById('heroTitle').innerHTML    = heroContent[l].title;
+  document.getElementById('heroTitle').innerHTML      = heroContent[l].title;
   document.getElementById('heroSubtitle').textContent = heroContent[l].subtitle;
-  document.getElementById('heroCta').textContent    = heroContent[l].cta;
-
-  // Form placeholders
-  document.getElementById('fi-subject').placeholder = heroContent[l].subjectPH;
-  document.getElementById('fi-message').placeholder = heroContent[l].messagePH;
-  document.getElementById('formBtn').textContent    = heroContent[l].sendBtn;
-
-  // Tab labels
+  document.getElementById('heroCta').textContent      = heroContent[l].cta;
+  document.getElementById('fi-subject').placeholder   = heroContent[l].subjectPH;
+  document.getElementById('fi-message').placeholder   = heroContent[l].messagePH;
+  document.getElementById('formBtn').textContent      = heroContent[l].sendBtn;
   const tabIds = ['tab-what', 'tab-believe', 'tab-team'];
   tabIds.forEach((id, i) => {
     document.getElementById(id).textContent = heroContent[l].tabs[i];
   });
 }
-
 /* ── TABS ── */
 function switchTab(id) {
   document.querySelectorAll('.about-tab').forEach(t => t.classList.remove('active'));
@@ -1114,12 +923,10 @@ function switchTab(id) {
   document.getElementById('tab-' + id).classList.add('active');
   document.getElementById('panel-' + id).classList.add('active');
 }
-
 /* ── HERO SLIDESHOW ── */
 let slide = 0;
 const slides = document.querySelectorAll('.hero-slide');
 const dots   = document.querySelectorAll('.hero-dot');
-
 function goToSlide(n) {
   slides[slide].classList.remove('active');
   dots[slide].classList.remove('active');
@@ -1127,21 +934,17 @@ function goToSlide(n) {
   slides[slide].classList.add('active');
   dots[slide].classList.add('active');
 }
-
 setInterval(() => goToSlide((slide + 1) % slides.length), 5000);
-
 /* ── MOBILE MENU ── */
 function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
 }
-
 /* ── NAV SCROLL SHADOW ── */
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').style.boxShadow =
     window.scrollY > 10 ? '0 2px 24px rgba(0,0,0,0.12)' : '0 1px 16px rgba(0,0,0,0.07)';
 });
-
-/* ── CONTACT FORM SUCCESS ── */
+/* ── CONTACT FORM ── */
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', async e => {
   e.preventDefault();
@@ -1168,6 +971,5 @@ form.addEventListener('submit', async e => {
   }
 });
 </script>
-
 </body>
 </html>
