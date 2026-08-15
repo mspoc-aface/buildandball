@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Build & Ball — DRC</title>
   <meta name="description" content="Build & Ball crée et réhabilite des espaces sportifs inclusifs pour la jeunesse congolaise.">
+  <link rel="icon" type="image/png" href="logo-transparent.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -404,6 +405,77 @@
     .team-name { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.2rem; }
     .team-role { font-size: 0.78rem; color: var(--grey); font-weight: 300; }
     .team-note { margin-top: 2rem; color: var(--grey); font-size: 0.88rem; font-weight: 300; font-style: italic; }
+    /* ─── NEWS ─── */
+    #news { background: #fff; }
+    .news-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid #eee;
+      align-items: flex-start;
+    }
+    .news-item:first-child { border-top: 1px solid #eee; }
+    .news-date {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 4px;
+    }
+    .news-month {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+    }
+    .news-year {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .news-body { }
+    .news-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: #1a1a1a;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 0.6rem;
+    }
+    .news-body h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .news-body p {
+      font-size: 0.88rem;
+      color: var(--grey);
+      line-height: 1.72;
+      font-weight: 300;
+      max-width: 580px;
+    }
+    .news-empty {
+      margin-top: 3rem;
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+    .news-empty span { font-size: 3rem; display: block; margin-bottom: 1rem; }
+    .news-empty p { font-size: 0.9rem; color: var(--grey); font-weight: 300; line-height: 1.6; }
+    @media (max-width: 820px) {
+      .news-item { grid-template-columns: 80px 1fr; gap: 1.2rem; }
+    }
     /* ─── PROJECTS ─── */
     #projects { background: var(--light-bg); }
     .coming-soon-box {
@@ -527,12 +599,13 @@
 <!-- ══════════════════════════════════ NAV ══════════════════════════════════ -->
 <nav id="navbar">
   <div class="nav-logo">
-    <a href="#home"><img src="logo.svg" alt="Build & Ball"></a>
+    <a href="#home"><img src="logo-transparent.png" alt="Build & Ball"></a>
   </div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#story"    data-fr="Notre histoire" data-en="Our Story">Notre histoire</a></li>
     <li><a href="#about"    data-fr="À propos"        data-en="About">À propos</a></li>
     <li><a href="#projects" data-fr="Nos projets"     data-en="Our Projects">Nos projets</a></li>
+    <li><a href="#news"     data-fr="Actualités"      data-en="News">Actualités</a></li>
     <li><a href="#contact"  data-fr="Contact"         data-en="Contact">Contact</a></li>
   </ul>
   <div class="nav-right">
@@ -816,6 +889,66 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════ NEWS ══════════════════════════════════ -->
+<section id="news">
+  <div class="section-label" data-fr="ACTUALITÉS" data-en="NEWS">ACTUALITÉS</div>
+  <h2 class="section-title" data-fr="Nos dernières nouvelles" data-en="Latest News">Nos dernières nouvelles</h2>
+  <p class="section-desc"
+     data-fr="Suivez les étapes clés de Build &amp; Ball — de la fondation aux terrains en construction."
+     data-en="Follow the key milestones of Build &amp; Ball — from founding to courts under construction.">
+    Suivez les étapes clés de Build &amp; Ball — de la fondation aux terrains en construction.
+  </p>
+
+  <div class="news-list">
+
+    <!-- ══ ADD NEW ENTRIES AT THE TOP ══
+         Copy the block below to add a new item:
+    <div class="news-item">
+      <div class="news-date">
+        <span class="news-month" data-fr="Mois" data-en="Month">Mois</span>
+        <span class="news-year">2026</span>
+      </div>
+      <div class="news-body">
+        <span class="news-tag" data-fr="Étiquette" data-en="Tag">Étiquette</span>
+        <h3 data-fr="Titre FR" data-en="Title EN">Titre FR</h3>
+        <p data-fr="Texte FR" data-en="Text EN">Texte FR</p>
+      </div>
+    </div>
+    ══════════════════════════════════ -->
+
+    <div class="news-item">
+      <div class="news-date">
+        <span class="news-month" data-fr="Août" data-en="August">Août</span>
+        <span class="news-year">2026</span>
+      </div>
+      <div class="news-body">
+        <span class="news-tag" data-fr="Étape clé" data-en="Milestone">Étape clé</span>
+        <h3 data-fr="Build &amp; Ball est officiellement enregistrée" data-en="Build &amp; Ball is officially registered">Build &amp; Ball est officiellement enregistrée</h3>
+        <p data-fr="Build &amp; Ball est désormais officiellement reconnue en tant qu'association en République Démocratique du Congo. Une étape fondatrice qui marque le début d'une aventure collective au service de la jeunesse congolaise."
+           data-en="Build &amp; Ball is now officially recognized as an association in the Democratic Republic of Congo. A founding milestone that marks the beginning of a collective adventure in service of Congolese youth.">
+          Build &amp; Ball est désormais officiellement reconnue en tant qu'association en République Démocratique du Congo. Une étape fondatrice qui marque le début d'une aventure collective au service de la jeunesse congolaise.
+        </p>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">
+        <span class="news-month" data-fr="Juin" data-en="June">Juin</span>
+        <span class="news-year">2026</span>
+      </div>
+      <div class="news-body">
+        <span class="news-tag" data-fr="Fondation" data-en="Founding">Fondation</span>
+        <h3 data-fr="Naissance de Build &amp; Ball" data-en="Build &amp; Ball is born">Naissance de Build &amp; Ball</h3>
+        <p data-fr="Six passionnés de basketball et de jeunesse se réunissent à Kinshasa pour fonder Build &amp; Ball, avec une vision commune : construire des terrains et des avenirs en République Démocratique du Congo."
+           data-en="Six passionate basketball and youth advocates come together in Kinshasa to found Build &amp; Ball, with a shared vision: to build courts and futures in the Democratic Republic of Congo.">
+          Six passionnés de basketball et de jeunesse se réunissent à Kinshasa pour fonder Build &amp; Ball, avec une vision commune : construire des terrains et des avenirs en République Démocratique du Congo.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ══════════════════════════════════ CONTACT ══════════════════════════════════ -->
 <section id="contact">
   <div class="section-label" data-fr="NOUS CONTACTER" data-en="GET IN TOUCH">NOUS CONTACTER</div>
@@ -862,12 +995,13 @@
 <!-- ══════════════════════════════════ FOOTER ══════════════════════════════════ -->
 <footer>
   <div class="footer-logo">
-    <img src="logo.svg" alt="Build &amp; Ball">
+    <img src="logo-transparent.png" alt="Build &amp; Ball">
   </div>
   <ul class="footer-links">
     <li><a href="#story"    data-fr="Notre histoire" data-en="Our Story">Notre histoire</a></li>
     <li><a href="#about"    data-fr="À propos"        data-en="About">À propos</a></li>
     <li><a href="#projects" data-fr="Projets"         data-en="Projects">Projets</a></li>
+    <li><a href="#news"     data-fr="Actualités"      data-en="News">Actualités</a></li>
     <li><a href="#contact"  data-fr="Contact"         data-en="Contact">Contact</a></li>
     <li><a href="https://www.instagram.com/build.andball" target="_blank">Instagram</a></li>
   </ul>
