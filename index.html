@@ -1037,7 +1037,7 @@ function setLang(l) {
     b.classList.toggle('active', b.textContent === l.toUpperCase());
   });
   document.querySelectorAll('[data-fr][data-en]').forEach(el => {
-    el.textContent = el.getAttribute('data-' + l);
+    el.innerHTML = el.getAttribute('data-' + l);
   });
   document.getElementById('heroTitle').innerHTML      = heroContent[l].title;
   document.getElementById('heroSubtitle').textContent = heroContent[l].subtitle;
